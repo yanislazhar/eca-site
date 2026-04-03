@@ -1,5 +1,5 @@
 import { Menu, X } from 'lucide-react'
-import { colors } from '../data/siteContent'
+import { brand, colors } from '../data/siteContent'
 
 export function Navbar({ isScrolled, mobileMenuOpen, setMobileMenuOpen }) {
   return (
@@ -8,15 +8,20 @@ export function Navbar({ isScrolled, mobileMenuOpen, setMobileMenuOpen }) {
         isScrolled ? 'bg-white py-4 shadow-md' : 'bg-transparent py-6'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        <a href="#accueil" className="flex items-center gap-3 group">
-          <div className="h-14 md:h-16 w-14 md:w-16 rounded-2xl bg-[#4CAF50] flex items-center justify-center font-hero font-black text-white text-lg md:text-xl shadow-lg group-hover:bg-[#2E7032] transition-colors">
-            ECA
-          </div>
-          <span
-            className={`hidden sm:block font-bold text-sm tracking-tight max-w-[140px] leading-tight ${
-              isScrolled ? 'text-[#111111]' : 'text-white drop-shadow-md'
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 md:px-12">
+        <a href="#accueil" className="group flex min-w-0 max-w-[65%] items-center gap-2 sm:gap-3 md:max-w-none">
+          <img
+            src={brand.logo}
+            alt={brand.logoAlt}
+            className={`h-10 max-h-12 w-auto object-contain object-left transition-opacity sm:h-12 md:h-14 md:max-h-16 ${
+              isScrolled ? '' : 'drop-shadow-[0_2px_12px_rgba(0,0,0,0.65)]'
             }`}
+            decoding="async"
+          />
+          <span
+            className={`hidden min-w-0 max-w-[120px] truncate leading-tight sm:block sm:max-w-[140px] md:max-w-none md:overflow-visible md:whitespace-normal ${
+              isScrolled ? 'text-[#111111]' : 'text-white drop-shadow-md'
+            } text-xs font-bold tracking-tight md:text-sm`}
           >
             Energy Cities Algeria
           </span>
@@ -53,7 +58,7 @@ export function Navbar({ isScrolled, mobileMenuOpen, setMobileMenuOpen }) {
 
         <button
           type="button"
-          className="md:hidden p-2 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50]"
+          className="shrink-0 rounded-lg p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4CAF50] md:hidden"
           aria-expanded={mobileMenuOpen}
           aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
           onClick={() => setMobileMenuOpen((o) => !o)}
@@ -64,7 +69,7 @@ export function Navbar({ isScrolled, mobileMenuOpen, setMobileMenuOpen }) {
       </div>
 
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-xl flex flex-col p-6 gap-6 text-lg font-medium text-[#111111] md:hidden border-t border-gray-100">
+        <div className="absolute left-0 top-full flex max-h-[min(70dvh,calc(100dvh-5rem))] w-full flex-col gap-6 overflow-y-auto border-t border-gray-100 bg-white p-6 text-lg font-medium text-[#111111] shadow-xl md:hidden">
           <a href="#accueil" onClick={() => setMobileMenuOpen(false)}>
             Accueil
           </a>

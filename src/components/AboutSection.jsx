@@ -1,19 +1,20 @@
 import { Quote, History } from 'lucide-react'
 import { images, roadmapSteps } from '../data/siteContent'
+import { RoadmapTimeline } from './RoadmapTimeline'
 
 export function AboutSection() {
   return (
-    <section id="apropos" className="py-24 md:py-40 bg-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="mb-16">
-          <h2 className="text-[#4CAF50] font-bold tracking-widest uppercase mb-4 text-sm">
+    <section className="py-16 md:py-24 lg:py-40 bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+        <header className="mb-12 md:mb-16">
+          <p id="apropos" className="section-anchor eca-kicker">
             À propos de l&apos;association ECA
-          </h2>
-          <h3 className="text-4xl md:text-6xl font-bold text-[#111111] tracking-tight leading-tight max-w-4xl">
+          </p>
+          <h2 className="eca-section-title max-w-4xl">
             L&apos;expertise humaine au cœur de la transition.
-          </h3>
-          <div className="w-20 h-1 bg-[#4CAF50] mt-8" />
-        </div>
+          </h2>
+          <div className="eca-title-bar" />
+        </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           <div className="lg:col-span-5 flex flex-col gap-10">
@@ -23,17 +24,40 @@ export function AboutSection() {
               développement durable.
             </p>
 
-            <div className="relative p-8 md:p-10 bg-[#f9f9f9] rounded-3xl border-l-8 border-[#F5A623] shadow-sm">
-              <Quote className="absolute top-4 right-6 text-gray-200 w-12 h-12 opacity-50" />
-              <h4 className="font-bold text-[#111111] mb-4 text-xl flex items-center gap-3 relative z-10">
-                Le mot du Président
-              </h4>
-              <p className="text-gray-600 text-lg italic leading-relaxed relative z-10">
-                « Notre engagement est de bâtir un avenir où l&apos;essor de nos cités algériennes
-                s&apos;harmonise avec la préservation de la planète. Nous agissons comme un pont
-                international pour infuser le changement énergétique au cœur de nos territoires. »
-              </p>
-              <div className="mt-6 font-bold text-[#111111]">Hasni Sid Ali</div>
+            <div className="relative rounded-3xl border-l-8 border-[#F5A623] bg-[#f9f9f9] p-6 shadow-sm sm:p-8 md:p-10">
+              <Quote
+                className="absolute right-4 top-4 h-12 w-12 text-gray-200 opacity-50 sm:right-6 sm:top-6"
+                aria-hidden
+              />
+              <div className="relative z-10 pr-0 text-center sm:pr-4 sm:text-left">
+                <h3 className="mb-3 text-lg font-bold text-[#111111] md:text-xl">
+                  Le mot du Président
+                </h3>
+                <p className="text-sm italic leading-relaxed text-gray-600 md:text-base md:leading-relaxed">
+                  « Notre engagement est de bâtir un avenir où l&apos;essor de nos cités algériennes
+                  s&apos;harmonise avec la préservation de la planète. Nous agissons comme un pont
+                  international pour infuser le changement énergétique au cœur de nos territoires. »
+                </p>
+              </div>
+
+              <div className="relative z-10 mt-6 flex justify-center sm:justify-end">
+                <div className="flex max-w-full items-center gap-3 rounded-2xl border border-gray-200/90 bg-white/95 px-4 py-3 shadow-sm ring-1 ring-black/[0.03] sm:gap-4 sm:px-5 sm:py-3.5">
+                  <img
+                    src={images.president}
+                    alt=""
+                    className="h-14 w-14 shrink-0 rounded-full object-cover object-center shadow-md ring-2 ring-[#F5A623]/40 sm:h-16 sm:w-16"
+                    width={64}
+                    height={64}
+                    decoding="async"
+                  />
+                  <div className="min-w-0 text-left">
+                    <p className="text-[10px] font-semibold uppercase tracking-wider text-[#4CAF50] sm:text-xs">
+                      Président
+                    </p>
+                    <p className="font-bold leading-tight text-[#111111] sm:text-lg">Hasni Sid Ali</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -63,23 +87,17 @@ export function AboutSection() {
           </div>
         </div>
 
-        <div className="mt-40 pt-20 border-t border-gray-100">
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold mb-16 flex items-center gap-4">
-              <History className="text-[#4CAF50]" aria-hidden />
-              Notre parcours
-            </h3>
-            <div className="relative border-l-2 border-[#F5A623]/30 ml-4 space-y-12">
-              {roadmapSteps.map((step) => (
-                <div key={step.year + step.title} className="relative pl-12 group">
-                  <div className="absolute -left-[11px] top-1 w-5 h-5 rounded-full bg-white border-4 border-[#F5A623] group-hover:bg-[#F5A623] transition-colors duration-300" />
-                  <div className="text-[#F5A623] font-bold text-xl mb-1">{step.year}</div>
-                  <h4 className="text-xl font-bold text-[#111111] mb-3">{step.title}</h4>
-                  <p className="text-gray-500 max-w-2xl leading-relaxed">{step.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="mt-24 border-t border-gray-100 pt-16 md:mt-40 md:pt-20">
+          <header className="mb-10 md:mb-14">
+            <p className="eca-kicker flex items-center gap-2">
+              <History className="h-4 w-4 shrink-0 text-[#4CAF50]" aria-hidden />
+              Parcours
+            </p>
+            <h3 className="eca-section-title">Notre parcours</h3>
+            <div className="eca-title-bar eca-title-bar--accent" />
+          </header>
+
+          <RoadmapTimeline steps={roadmapSteps} />
         </div>
       </div>
     </section>

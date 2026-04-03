@@ -2,17 +2,16 @@ import { values } from '../data/siteContent'
 
 export function ValuesSection() {
   return (
-    <section className="py-24 md:py-32 bg-[#111111] text-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="mb-20 gap-8">
-          <h4 className="text-[#81C784] font-bold tracking-widest uppercase mb-4 text-sm">
-            Nos Valeurs
-          </h4>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+    <section className="bg-[#111111] py-16 text-white md:py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+        <header className="mb-12 md:mb-20">
+          <p className="eca-kicker eca-kicker--on-dark">Valeurs</p>
+          <h2 className="eca-section-title eca-section-title--light max-w-4xl">
             Engagement, innovation et collaboration.
           </h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="eca-title-bar eca-title-bar--on-dark" />
+        </header>
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-12">
           {values.map((v) => {
             const Icon = v.icon
             return (

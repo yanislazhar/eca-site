@@ -28,7 +28,7 @@ export default function App() {
   }, [mobileMenuOpen])
 
   return (
-    <div className="min-h-screen font-brand text-[#111111] bg-white selection:bg-[#4CAF50] selection:text-white">
+    <div className="min-h-screen overflow-x-hidden font-brand text-[#111111] bg-white selection:bg-[#4CAF50] selection:text-white">
       <Navbar
         isScrolled={isScrolled}
         mobileMenuOpen={mobileMenuOpen}

@@ -3,29 +3,35 @@ import { visionBlocks } from '../data/siteContent'
 
 export function VisionMissions() {
   return (
-    <section className="py-24 bg-[#f9f9f9]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+    <section className="bg-gradient-to-b from-[#f9f9f9] via-[#fcfcfc] to-white py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+        <header className="mb-12 max-w-3xl md:mb-16">
+          <p className="eca-kicker">Axes stratégiques</p>
+          <h2 className="eca-section-title">Vision, missions et objectifs</h2>
+          <div className="eca-title-bar" />
+        </header>
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-12">
           {visionBlocks.map((box) => {
             const Icon = box.icon
             return (
               <div
                 key={box.title}
-                className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full transition-all hover:shadow-md"
+                className="flex h-full flex-col rounded-3xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:shadow-md sm:p-8"
               >
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+                  className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl"
                   style={{ backgroundColor: box.bg }}
                 >
                   <Icon className="h-7 w-7" style={{ color: box.color }} aria-hidden />
                 </div>
-                <h4
-                  className="font-bold tracking-widest uppercase mb-3 text-sm"
+                <h3
+                  className="mb-2 text-sm font-bold uppercase tracking-widest"
                   style={{ color: box.color }}
                 >
                   {box.title}
-                </h4>
-                <h3 className="text-2xl font-bold text-[#111111] mb-6">{box.subtitle}</h3>
+                </h3>
+                <p className="mb-6 text-xl font-bold text-[#111111] sm:text-2xl">{box.subtitle}</p>
                 <ul className="space-y-4 flex-grow">
                   {box.items.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm text-gray-600">

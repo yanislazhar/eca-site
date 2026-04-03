@@ -21,21 +21,20 @@ function ProjectImage({ project, title }) {
 
 export function ProjectsSection() {
   return (
-    <section id="projets" className="py-24 md:py-40 bg-[#f9f9f9]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="mb-20 text-left">
-          <h2 className="text-[#4CAF50] font-bold tracking-widest uppercase mb-4 text-sm">
+    <section className="bg-[#f9f9f9] py-16 md:py-24 lg:py-40">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+        <header className="mb-12 text-left md:mb-20">
+          <p id="projets" className="section-anchor eca-kicker">
             Réalisations
-          </h2>
-          <h3 className="text-4xl md:text-6xl font-bold text-[#111111] tracking-tight">
-            Nos projets
-          </h3>
-          <p className="mt-8 text-gray-600 text-lg md:text-xl max-w-4xl leading-relaxed font-light">
+          </p>
+          <h2 className="eca-section-title">Nos projets</h2>
+          <div className="eca-title-bar" />
+          <p className="mt-6 max-w-4xl text-base font-light leading-relaxed text-gray-600 md:mt-8 md:text-lg lg:text-xl">
             Nos réalisations dans les énergies renouvelables et l&apos;efficacité énergétique
             témoignent de l&apos;engagement de l&apos;ECA à apporter des solutions innovantes et
             pérennes, afin de procurer au citoyen un environnement sain et durable.
           </p>
-        </div>
+        </header>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ecaProjects.map((p) => (
             <article

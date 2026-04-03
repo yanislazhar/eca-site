@@ -2,17 +2,21 @@ import { Globe, Send } from 'lucide-react'
 
 export function ContactSection() {
   return (
-    <section id="contact" className="relative py-24 md:py-32 bg-[#2E7032] overflow-hidden">
+    <section className="relative overflow-hidden bg-[#2E7032] py-16 md:py-24 lg:py-32">
       <div className="absolute top-0 right-0 w-1/3 h-full bg-[#4CAF50] rounded-l-full opacity-10 transform translate-x-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F5A623] rounded-full opacity-10 transform -translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
+            <p id="contact" className="section-anchor eca-kicker eca-kicker--accent">
+              Contact
+            </p>
+            <h2 className="eca-section-title eca-section-title--light mb-6 md:mb-8">
               Construisons ensemble.
             </h2>
-            <p className="text-xl text-white/80 mb-12 max-w-xl leading-relaxed font-light">
+            <div className="eca-title-bar eca-title-bar--accent mb-6 md:mb-8" />
+            <p className="mb-10 max-w-xl text-base font-light leading-relaxed text-white/80 md:mb-12 md:text-lg lg:text-xl">
               Vous avez un projet pour votre collectivité ou souhaitez rejoindre notre réseau ?
               Envoyez-nous un message et notre équipe vous recontactera dans les plus brefs délais.
             </p>
@@ -31,7 +35,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl">
+          <div className="rounded-[2rem] bg-white p-6 shadow-2xl sm:rounded-[2.5rem] sm:p-8 md:p-12">
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()} noValidate>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">

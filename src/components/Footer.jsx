@@ -1,3 +1,5 @@
+import { brand } from '../data/siteContent'
+
 const footerLinks = [
   { id: 'accueil', label: 'Accueil' },
   { id: 'apropos', label: 'À propos' },
@@ -7,10 +9,16 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#111111] text-white pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-16">
-        <div className="md:col-span-2 text-center md:text-left">
-          <p className="text-gray-400 max-w-sm text-lg leading-relaxed mx-auto md:mx-0">
+    <footer className="bg-[#111111] pb-10 pt-16 text-white md:pt-20">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 border-b border-white/10 px-4 pb-12 sm:px-6 md:grid-cols-4 md:gap-12 md:px-12 md:pb-16">
+        <div className="flex flex-col items-center gap-6 text-center md:col-span-2 md:items-start md:text-left">
+          <img
+            src={brand.logo}
+            alt={brand.logoAlt}
+            className="h-14 w-auto max-w-[220px] object-contain object-center md:h-16 md:object-left"
+            decoding="async"
+          />
+          <p className="mx-auto max-w-sm text-base leading-relaxed text-gray-400 md:mx-0 md:text-lg">
             Energy Cities Algeria. La référence nationale de la transition énergétique locale et du
             développement durable des territoires.
           </p>
@@ -36,8 +44,16 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="text-center pt-10 text-gray-600 text-[10px] md:text-xs uppercase tracking-widest font-medium px-4">
-        Copyright © 2026 Energy Cities Algeria All rights reserved | Created by Daytaii
+      <div className="px-4 pt-8 text-center text-[10px] font-medium uppercase tracking-widest text-gray-600 md:pt-10 md:text-xs">
+        Copyright © 2026 Energy Cities Algeria — Tous droits réservés | Réalisation{' '}
+        <a
+          href="https://daytaii.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-500 no-underline transition-colors hover:text-[#4CAF50]"
+        >
+          DAYTAII
+        </a>
       </div>
     </footer>
   )
