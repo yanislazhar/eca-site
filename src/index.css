@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+html {
+  scroll-behavior: smooth;
+}
+
+#accueil,
+#apropos,
+#projets,
+#partenaires,
+#contact {
+  scroll-margin-top: 100px;
+}
+
+@media (min-width: 768px) {
+  #accueil,
+  #apropos,
+  #projets,
+  #partenaires,
+  #contact {
+    scroll-margin-top: 120px;
+  }
+}
+
+@keyframes eca-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: eca-scroll 20s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+.font-brand {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-hero {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
