@@ -1,26 +1,33 @@
-import { scrollingPartners } from '../data/siteContent'
+import { partners } from '../data/siteContent'
 
-const duplicated = [...scrollingPartners, ...scrollingPartners, ...scrollingPartners, ...scrollingPartners]
+const duplicated = [...partners, ...partners, ...partners, ...partners]
 
 export function PartnersSection() {
   return (
-    <section id="partenaires" className="py-24 bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
-        <h2 className="text-[#4CAF50] font-bold tracking-widest uppercase mb-4 text-sm">Réseau</h2>
-        <h3 className="text-4xl md:text-6xl font-bold text-[#111111] tracking-tight">
-          Nos partenaires engagés
-        </h3>
-      </div>
+    <section className="border-t border-gray-100 bg-white py-16 md:py-24">
+      <header className="mx-auto mb-12 max-w-7xl px-4 sm:px-6 md:mb-20 md:px-12">
+        <p id="partenaires" className="section-anchor eca-kicker">
+          Réseau
+        </p>
+        <h2 className="eca-section-title">Nos partenaires</h2>
+        <div className="eca-title-bar" />
+      </header>
 
       <div className="w-full overflow-hidden bg-[#f9f9f9] py-16 border-y border-gray-100">
-        <div className="animate-scroll" role="list" aria-label="Partenaires">
+        <div className="animate-scroll items-center" role="list" aria-label="Partenaires">
           {duplicated.map((partner, index) => (
             <div
-              key={`${partner}-${index}`}
+              key={`${partner.name}-${index}`}
               role="listitem"
-              className="mx-12 md:mx-24 text-4xl md:text-6xl font-black text-gray-300 hover:text-[#4CAF50] transition-colors cursor-default uppercase tracking-tighter italic whitespace-nowrap"
+              className="mx-10 flex h-16 min-w-[140px] items-center justify-center md:mx-20 md:h-20 md:min-w-[180px]"
             >
-              {partner}
+              <img
+                src={partner.logo}
+                alt={partner.alt}
+                className="max-h-14 md:max-h-16 w-auto max-w-[200px] object-contain"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           ))}
         </div>

@@ -1,14 +1,34 @@
 import { Globe, Target, Building, Leaf, Zap, Users } from 'lucide-react'
 
-/** Chemins public/ — ajoutez vos fichiers dans `eca-site/public/` pour les remplacer */
+/** Fichiers sous public/images/ (URL encodée ; NFD macOS pour certains noms) */
+const IMG_FORUM = 'Projet - Forum me\u0301dite\u0301ranne\u0301en .png'
+const IMG_ECO = 'Projet - Eco-gestion des Eaux Use\u0301es.jpg'
+
+function publicImage(filename) {
+  return '/images/' + encodeURIComponent(filename)
+}
+
+export const brand = {
+  logo: '/logo/LOGO.png',
+  logoAlt: 'Energy Cities Algeria — ECA',
+}
+
 export const images = {
-  hero: encodeURI("/Image d'accueil.jpg"),
+  hero: publicImage("Image d'accueil.jpg"),
   heroFallback:
     'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1920&q=80',
-  aboutTeam: '/image_32f178.jpg',
+  aboutTeam: publicImage('Photo membres association.jpeg'),
   aboutTeamFallback:
     'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+  president: publicImage('hasnisidali.png'),
 }
+
+/** Logos partenaires (public/images/) */
+export const partners = [
+  { name: 'APRUE', logo: publicImage('Partenaire APRUE.png'), alt: 'Logo APRUE' },
+  { name: 'CEREFE', logo: publicImage('Partenaire CEREFE.png'), alt: 'Logo CEREFE' },
+  { name: 'CNFE', logo: publicImage('Partenaire CNEFE.png'), alt: 'Logo CNFE' },
+]
 
 export const colors = {
   primary: '#4CAF50',
@@ -48,14 +68,12 @@ export const roadmapSteps = [
   },
 ]
 
-export const scrollingPartners = ['APRUE', 'CEREFE', 'CNFE']
-
 export const ecaProjects = [
   {
     title: 'Jumelage de Villes',
     description:
       "Programme de coopération inédit entre des municipalités algériennes et européennes pour l'échange d'expertises.",
-    image: '/image_34551b.jpg',
+    image: publicImage('Projet - jumelage 2 villes.png'),
     imageFallback:
       'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=800&q=80',
   },
@@ -63,35 +81,40 @@ export const ecaProjects = [
     title: 'Projet Commune Verte',
     description:
       "Collaboration stratégique avec la GIZ pour le développement durable des communes et l'amélioration de l'efficacité énergétique.",
-    image:
+    image: publicImage('Projet - Commune verte.jpg'),
+    imageFallback:
       'https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Forum Méditerranéen',
     description:
       'Engagement actif dans les discussions régionales de haut niveau sur les enjeux cruciaux de la transition énergétique.',
-    image:
+    image: publicImage(IMG_FORUM),
+    imageFallback:
       'https://images.unsplash.com/photo-1475721027785-f74dea9f2943?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Projet INTERREG-TRANSMED',
     description:
       'Accord historique AVITEM-ECA visant la décarbonation des ports méditerranéens par le transfert de technologies.',
-    image:
+    image: publicImage('Projet - INTERREG-TRANSMED.png'),
+    imageFallback:
       'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Partenariat Solar Quarter',
     description:
       "Synergies et développement de solutions écologiques dans le secteur de l'énergie solaire (Chine-Algérie).",
-    image:
+    image: publicImage('Projet - Partenariat Solar Quarter.jpg'),
+    imageFallback:
       'https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Eco-gestion des Eaux Usées',
     description:
       "Initiative centrée sur la gestion écologique, le traitement et la valorisation durable de l'eau.",
-    image:
+    image: publicImage(IMG_ECO),
+    imageFallback:
       'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   },
   {
@@ -105,14 +128,16 @@ export const ecaProjects = [
     title: 'Convention CNFE',
     description:
       "Projet d'encadrement et de formations intensives dédiées à la protection de l'environnement.",
-    image:
+    image: publicImage('Partenaire CNEFE.png'),
+    imageFallback:
       'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   },
   {
     title: 'Convention AIG',
     description:
       "Plan d'actions national pour la rationalisation de l'utilisation du gaz industriel.",
-    image:
+    image: publicImage('Projet - Convention AIG.jpg'),
+    imageFallback:
       'https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   },
 ]

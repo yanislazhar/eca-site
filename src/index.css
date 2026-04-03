@@ -4,21 +4,19 @@ html {
   scroll-behavior: smooth;
 }
 
-#accueil,
-#apropos,
-#projets,
-#partenaires,
-#contact {
-  scroll-margin-top: 100px;
+/* Ancrage accueil : haut de page sans décalage */
+#accueil {
+  scroll-margin-top: 0;
+}
+
+/* Titres cibles du menu : décalage sous la barre fixe pour ne pas garder la fin de la section précédente */
+.section-anchor {
+  scroll-margin-top: 7.5rem;
 }
 
 @media (min-width: 768px) {
-  #accueil,
-  #apropos,
-  #projets,
-  #partenaires,
-  #contact {
-    scroll-margin-top: 120px;
+  .section-anchor {
+    scroll-margin-top: 9rem;
   }
 }
 
@@ -55,4 +53,80 @@ body {
 
 #root {
   min-height: 100vh;
+}
+
+/* Titres de section — cohérence visuelle */
+.eca-kicker {
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #4caf50;
+}
+
+@media (min-width: 640px) {
+  .eca-kicker {
+    font-size: 0.875rem;
+  }
+}
+
+.eca-kicker--on-dark {
+  color: #81c784;
+}
+
+.eca-kicker--accent {
+  color: #f5a623;
+}
+
+.eca-section-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #111111;
+}
+
+@media (min-width: 640px) {
+  .eca-section-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .eca-section-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .eca-section-title {
+    font-size: 3.75rem;
+  }
+}
+
+.eca-section-title--light {
+  color: #ffffff;
+}
+
+.eca-title-bar {
+  margin-top: 1.5rem;
+  height: 0.25rem;
+  width: 5rem;
+  background-color: #4caf50;
+}
+
+@media (min-width: 640px) {
+  .eca-title-bar {
+    margin-top: 2rem;
+    width: 5rem;
+  }
+}
+
+.eca-title-bar--accent {
+  background-color: #f5a623;
+}
+
+.eca-title-bar--on-dark {
+  background-color: #81c784;
 }
