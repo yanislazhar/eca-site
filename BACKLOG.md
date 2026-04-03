@@ -17,7 +17,7 @@ Fichier partagé pour suivre les idées et travaux à venir (produit / technique
 - **Connecter le formulaire** « Contact » à un backend réel : envoi d’email (Resend, SendGrid, Brevo), webhook (Make, Zapier), ou endpoint serveur (serverless) avec validation anti-spam (honeypot, Turnstile / reCAPTCHA).
 - États UI : chargement, succès, erreur ; ne pas perdre le message en cas d’échec.
 
-### 3. *(À compléter)*
+### 3. Référencement
 
 - …
 
