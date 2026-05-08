@@ -1,0 +1,19 @@
+{
+  "name": "Energy Cities Algeria",
+  "short_name": "ECA",
+  "description": "Transition énergétique, villes durables et coopération France-Algérie pour les collectivités locales.",
+  "lang": "fr-DZ",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2E7032",
+  "icons": [
+    {
+      "src": "/favicon/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

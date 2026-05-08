@@ -6,6 +6,7 @@ import { VisionMissions } from './components/VisionMissions'
 import { ValuesSection } from './components/ValuesSection'
 import { ProjectsSection } from './components/ProjectsSection'
 import { PartnersSection } from './components/PartnersSection'
+import { SeoSection } from './components/SeoSection'
 import { ContactSection } from './components/ContactSection'
 import { Footer } from './components/Footer'
 
@@ -41,6 +42,7 @@ export default function App() {
         <ValuesSection />
         <ProjectsSection />
         <PartnersSection />
+        <SeoSection />
         <ContactSection />
       </main>
       <Footer />
