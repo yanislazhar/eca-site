@@ -15,7 +15,7 @@ Fichier partagé pour suivre les idées et travaux à venir (produit / technique
 - Utiliser **Vercel Blob + API serverless** pour éviter une base de données :
   - authentification simple via `/api/admin/login`, cookie HttpOnly et `ADMIN_PASSWORD` ;
   - contenu éditorial stocké dans un petit JSON `cms/content.json` ;
-  - images éditoriales stockées dans Vercel Blob.
+  - images éditoriales stockées dans Vercel Blob privé et servies via `/api/cms-image`.
 - Prévoir une première version simple sans rôles complexes, puis ajouter rôles / preview si le besoin grandit.
 
 ### 2. Formulaire de contact

@@ -1,7 +1,8 @@
-import { list, put } from '@vercel/blob'
+import { get, put } from '@vercel/blob'
 import { randomUUID } from 'node:crypto'
 
 const CONTENT_PATH = 'cms/content.json'
+const BLOB_ACCESS = 'private'
 
 function isBlobConfigured() {
   return Boolean(process.env.BLOB_READ_WRITE_TOKEN)
@@ -20,22 +21,16 @@ export async function readCmsContent() {
     return null
   }
 
-  const { blobs } = await list({
-    prefix: CONTENT_PATH,
-    limit: 1,
+  const contentBlob = await get(CONTENT_PATH, {
+    access: BLOB_ACCESS,
   })
 
-  const contentBlob = blobs.find((blob) => blob.pathname === CONTENT_PATH)
-  if (!contentBlob) {
+  if (!contentBlob?.stream) {
     return null
   }
 
-  const response = await fetch(`${contentBlob.url}?v=${Date.now()}`)
-  if (!response.ok) {
-    return null
-  }
-
-  return normalizeContent(await response.json())
+  const text = await new Response(contentBlob.stream).text()
+  return normalizeContent(JSON.parse(text))
 }
 
 export async function writeCmsContent(content) {
@@ -46,7 +41,7 @@ export async function writeCmsContent(content) {
   const normalizedContent = normalizeContent(content)
 
   await put(CONTENT_PATH, JSON.stringify(normalizedContent, null, 2), {
-    access: 'public',
+    access: BLOB_ACCESS,
     allowOverwrite: true,
     contentType: 'application/json; charset=utf-8',
     cacheControlMaxAge: 60,
@@ -64,10 +59,10 @@ export async function uploadImage({ folder, fileName, contentType, buffer }) {
   const safeFolder = folder === 'news' ? 'news' : 'site-media'
   const pathname = `cms/images/${safeFolder}/${randomUUID()}.${extension}`
   const blob = await put(pathname, buffer, {
-    access: 'public',
+    access: BLOB_ACCESS,
     contentType,
     cacheControlMaxAge: 60 * 60 * 24 * 365,
   })
 
-  return blob.url
+  return `/api/cms-image?path=${encodeURIComponent(blob.pathname)}`
 }
