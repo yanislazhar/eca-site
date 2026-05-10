@@ -1,5 +1,27 @@
-import { useState } from 'react'
-import { Globe, Send } from 'lucide-react'
+import { createElement, useState } from 'react'
+import { Globe, Mail, MapPin, Phone, Send } from 'lucide-react'
+import { contactInfo } from '../data/siteContent'
+
+const contactItems = [
+  {
+    label: 'Bureau National',
+    value: contactInfo.address,
+    href: 'https://maps.google.com/?q=18%20rue%20Larbi%20Ben%20M%27hidi%2C%20Alger%20Centre',
+    icon: MapPin,
+  },
+  {
+    label: 'Email',
+    value: contactInfo.email,
+    href: `mailto:${contactInfo.email}`,
+    icon: Mail,
+  },
+  {
+    label: 'Mobile',
+    value: contactInfo.phone,
+    href: contactInfo.phoneHref,
+    icon: Phone,
+  },
+]
 
 export function ContactSection() {
   const [status, setStatus] = useState('idle')
@@ -70,10 +92,33 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm font-bold uppercase tracking-widest text-[#F5A623]">
-                    Bureau National
+                    Energy Cities Algeria
                   </p>
                   <p className="text-lg">Alger, Algérie</p>
                 </div>
+              </div>
+              <div className="grid gap-4">
+                {contactItems.map(({ label, value, href, icon: Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={label === 'Bureau National' ? '_blank' : undefined}
+                    rel={label === 'Bureau National' ? 'noopener noreferrer' : undefined}
+                    className="flex items-start gap-4 rounded-3xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-white/25 hover:bg-white/10"
+                  >
+                    <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-[#F5A623]">
+                      {createElement(Icon, { size: 20, 'aria-hidden': true })}
+                    </span>
+                    <span>
+                      <span className="block text-xs font-bold uppercase tracking-widest text-[#F5A623]">
+                        {label}
+                      </span>
+                      <span className="mt-1 block text-base leading-relaxed text-white md:text-lg">
+                        {value}
+                      </span>
+                    </span>
+                  </a>
+                ))}
               </div>
             </div>
           </div>

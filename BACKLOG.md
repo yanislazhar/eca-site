@@ -6,11 +6,17 @@ Fichier partagé pour suivre les idées et travaux à venir (produit / technique
 
 ## À faire
 
-### 1. Backoffice (sous-domaine)
+### 1. Administration intégrée (`/admin/login`)
 
-- Mettre en place un **backoffice accessible via un sous-domaine** (ex. `admin.energy-cities-algeria.org` ou `cms.votredomaine.com`) pour que la com’ puisse **ajouter / modifier du contenu** sans toucher au code.
-- **Pistes à trancher** : CMS headless (Sanity, Strapi, Payload, Directus), Notion + sync, ou pages protégées Next/Astro côté déploiement.
-- Prévoir rôles (rédacteur / admin), médias (images PDF), et preview avant publication.
+- Remplacer l’idée de sous-domaine par une **page protégée `/admin/login`**, qui mène après connexion à `/admin`.
+- Limiter le périmètre éditorial aux besoins utiles pour ECA :
+  - modifier les **photos principales du site** ;
+  - ajouter / modifier / publier les **actualités** avec photo, titre, date, résumé et texte.
+- Utiliser **Vercel Blob + API serverless** pour éviter une base de données :
+  - authentification simple via `/api/admin/login`, cookie HttpOnly et `ADMIN_PASSWORD` ;
+  - contenu éditorial stocké dans un petit JSON `cms/content.json` ;
+  - images éditoriales stockées dans Vercel Blob.
+- Prévoir une première version simple sans rôles complexes, puis ajouter rôles / preview si le besoin grandit.
 
 ### 2. Formulaire de contact
 

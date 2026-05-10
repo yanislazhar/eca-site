@@ -1,14 +1,14 @@
 import { ArrowRight } from 'lucide-react'
 import { images } from '../data/siteContent'
 
-export function Hero() {
+export function Hero({ siteImages = images }) {
   return (
     <section
       id="accueil"
       className="relative flex min-h-screen min-h-[100dvh] items-center justify-center overflow-hidden"
     >
       <img
-        src={images.hero}
+        src={siteImages.hero}
         alt="Ville durable et énergies renouvelables"
         className="absolute inset-0 z-0 h-full w-full object-cover object-center brightness-[0.92] contrast-[1.02]"
         onError={(e) => {

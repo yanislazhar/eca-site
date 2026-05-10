@@ -13,6 +13,28 @@ export const brand = {
   logoAlt: 'Energy Cities Algeria — ECA',
 }
 
+export const contactInfo = {
+  email: 'energycitiesalgeria@gmail.com',
+  phone: '0551 29 44 72',
+  phoneHref: 'tel:+213551294472',
+  address: "18 rue Larbi Ben M'hidi, BP N° 93 - ALGER RP 16000 - Alger Centre",
+}
+
+export const socialLinks = [
+  {
+    name: 'YouTube',
+    href: 'https://www.youtube.com/@EACEnergyCitiesAlgeriaAssociat',
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/energy-cities-algeria-eca/?viewAsMember=true',
+  },
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/share/aQsmqcLfVegJWgHp/?mibextid=qi2Omg',
+  },
+]
+
 export const images = {
   hero: publicImage("Image d'accueil.jpg"),
   heroFallback:
@@ -22,6 +44,47 @@ export const images = {
     'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
   president: publicImage('hasnisidali.png'),
 }
+
+export const editableImageSlots = [
+  {
+    key: 'hero',
+    label: "Photo d'accueil",
+    description: "Image de couverture de la page d'accueil.",
+  },
+  {
+    key: 'aboutTeam',
+    label: "Photo d'équipe",
+    description: 'Image de la section À propos.',
+  },
+  {
+    key: 'president',
+    label: 'Photo du président',
+    description: 'Portrait affiché dans le mot du président.',
+  },
+]
+
+export const defaultNewsPosts = [
+  {
+    id: 'forum-mediterraneen',
+    title: 'Forum méditerranéen pour la transition énergétique',
+    excerpt:
+      'ECA renforce son engagement régional autour des solutions concrètes pour les villes durables.',
+    body: 'Une rencontre dédiée aux échanges entre acteurs publics, experts et partenaires méditerranéens pour accélérer la transition énergétique locale.',
+    image: publicImage(IMG_FORUM),
+    publishedAt: '2026-01-15',
+    isPublished: true,
+  },
+  {
+    id: 'commune-verte',
+    title: 'Déploiement du programme Commune Verte',
+    excerpt:
+      'Un accompagnement de terrain pour aider les collectivités à réduire leur empreinte énergétique.',
+    body: "Le programme Commune Verte soutient les communes dans l'identification, la priorisation et la mise en œuvre d'actions durables.",
+    image: publicImage('Projet - Commune verte.jpg'),
+    publishedAt: '2025-11-20',
+    isPublished: true,
+  },
+]
 
 /** Logos partenaires (public/images/) */
 export const partners = [
