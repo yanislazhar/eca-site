@@ -9,7 +9,10 @@ export function Navbar({ isScrolled, mobileMenuOpen, setMobileMenuOpen }) {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 md:px-12">
-        <a href="#accueil" className="group flex min-w-0 max-w-[65%] items-center gap-2 sm:gap-3 md:max-w-none">
+        <a
+          href="#accueil"
+          className="group flex min-w-0 max-w-[65%] items-center gap-2 sm:gap-3 md:max-w-none"
+        >
           <img
             src={brand.logo}
             alt={brand.logoAlt}
@@ -40,6 +43,9 @@ export function Navbar({ isScrolled, mobileMenuOpen, setMobileMenuOpen }) {
           </a>
           <a href="#projets" className="hover:text-[#4CAF50] transition-colors font-semibold">
             Réalisations
+          </a>
+          <a href="#actualites" className="hover:text-[#4CAF50] transition-colors font-semibold">
+            Actualités
           </a>
           <a href="#partenaires" className="hover:text-[#4CAF50] transition-colors font-semibold">
             Partenaires
@@ -78,6 +84,9 @@ export function Navbar({ isScrolled, mobileMenuOpen, setMobileMenuOpen }) {
           </a>
           <a href="#projets" onClick={() => setMobileMenuOpen(false)}>
             Réalisations
+          </a>
+          <a href="#actualites" onClick={() => setMobileMenuOpen(false)}>
+            Actualités
           </a>
           <a href="#partenaires" onClick={() => setMobileMenuOpen(false)}>
             Partenaires

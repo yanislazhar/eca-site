@@ -2,7 +2,7 @@ import { Quote, History } from 'lucide-react'
 import { images, roadmapSteps } from '../data/siteContent'
 import { RoadmapTimeline } from './RoadmapTimeline'
 
-export function AboutSection() {
+export function AboutSection({ siteImages = images }) {
   return (
     <section className="py-16 md:py-24 lg:py-40 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
@@ -43,7 +43,7 @@ export function AboutSection() {
               <div className="relative z-10 mt-6 flex justify-center sm:justify-end">
                 <div className="flex max-w-full items-center gap-3 rounded-2xl border border-gray-200/90 bg-white/95 px-4 py-3 shadow-sm ring-1 ring-black/[0.03] sm:gap-4 sm:px-5 sm:py-3.5">
                   <img
-                    src={images.president}
+                    src={siteImages.president}
                     alt=""
                     className="h-14 w-14 shrink-0 rounded-full object-cover object-center shadow-md ring-2 ring-[#F5A623]/40 sm:h-16 sm:w-16"
                     width={64}
@@ -64,7 +64,7 @@ export function AboutSection() {
           <div className="lg:col-span-7 relative group">
             <div className="overflow-hidden rounded-3xl shadow-2xl relative aspect-video md:aspect-auto">
               <img
-                src={images.aboutTeam}
+                src={siteImages.aboutTeam}
                 alt={"L'équipe Energy Cities Algeria"}
                 className="w-full h-full object-cover min-h-[280px] md:min-h-[400px] transition-transform duration-1000 group-hover:scale-105"
                 onError={(e) => {

@@ -1,6 +1,71 @@
-import { Globe, Send } from 'lucide-react'
+import { createElement, useState } from 'react'
+import { Globe, Mail, MapPin, Phone, Send } from 'lucide-react'
+import { contactInfo } from '../data/siteContent'
+
+const contactItems = [
+  {
+    label: 'Bureau National',
+    value: contactInfo.address,
+    href: 'https://maps.google.com/?q=18%20rue%20Larbi%20Ben%20M%27hidi%2C%20Alger%20Centre',
+    icon: MapPin,
+  },
+  {
+    label: 'Email',
+    value: contactInfo.email,
+    href: `mailto:${contactInfo.email}`,
+    icon: Mail,
+  },
+  {
+    label: 'Mobile',
+    value: contactInfo.phone,
+    href: contactInfo.phoneHref,
+    icon: Phone,
+  },
+]
 
 export function ContactSection() {
+  const [status, setStatus] = useState('idle')
+  const [feedback, setFeedback] = useState('')
+
+  const isSubmitting = status === 'submitting'
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+    setStatus('submitting')
+    setFeedback('')
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const payload = Object.fromEntries(formData.entries())
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+
+      const result = await response.json().catch(() => ({}))
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Impossible d’envoyer le message.')
+      }
+
+      form.reset()
+      setStatus('success')
+      setFeedback(result.message || 'Message envoyé avec succès.')
+    } catch (error) {
+      setStatus('error')
+      setFeedback(
+        error instanceof Error
+          ? error.message
+          : 'Impossible d’envoyer le message pour le moment.',
+      )
+    }
+  }
+
   return (
     <section className="relative overflow-hidden bg-[#2E7032] py-16 md:py-24 lg:py-32">
       <div className="absolute top-0 right-0 w-1/3 h-full bg-[#4CAF50] rounded-l-full opacity-10 transform translate-x-1/2 pointer-events-none" />
@@ -27,16 +92,49 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm font-bold uppercase tracking-widest text-[#F5A623]">
-                    Bureau National
+                    Energy Cities Algeria
                   </p>
                   <p className="text-lg">Alger, Algérie</p>
                 </div>
+              </div>
+              <div className="grid gap-4">
+                {contactItems.map(({ label, value, href, icon: Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={label === 'Bureau National' ? '_blank' : undefined}
+                    rel={label === 'Bureau National' ? 'noopener noreferrer' : undefined}
+                    className="flex items-start gap-4 rounded-3xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-white/25 hover:bg-white/10"
+                  >
+                    <span className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-[#F5A623]">
+                      {createElement(Icon, { size: 20, 'aria-hidden': true })}
+                    </span>
+                    <span>
+                      <span className="block text-xs font-bold uppercase tracking-widest text-[#F5A623]">
+                        {label}
+                      </span>
+                      <span className="mt-1 block text-base leading-relaxed text-white md:text-lg">
+                        {value}
+                      </span>
+                    </span>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
 
           <div className="rounded-[2rem] bg-white p-6 shadow-2xl sm:rounded-[2.5rem] sm:p-8 md:p-12">
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()} noValidate>
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="contact-company">Entreprise</label>
+                <input
+                  id="contact-company"
+                  name="company"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label
@@ -51,6 +149,7 @@ export function ContactSection() {
                     type="text"
                     autoComplete="name"
                     placeholder="Votre nom"
+                    required
                     className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:border-[#4CAF50] focus:ring-4 focus:ring-[#4CAF50]/10 transition-all text-[#111111]"
                   />
                 </div>
@@ -67,6 +166,7 @@ export function ContactSection() {
                     type="email"
                     autoComplete="email"
                     placeholder="votre@email.com"
+                    required
                     className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:border-[#4CAF50] focus:ring-4 focus:ring-[#4CAF50]/10 transition-all text-[#111111]"
                   />
                 </div>
@@ -83,6 +183,7 @@ export function ContactSection() {
                   name="subject"
                   type="text"
                   placeholder="Objet de votre message"
+                  required
                   className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:border-[#4CAF50] focus:ring-4 focus:ring-[#4CAF50]/10 transition-all text-[#111111]"
                 />
               </div>
@@ -98,14 +199,31 @@ export function ContactSection() {
                   name="message"
                   rows={4}
                   placeholder="Comment pouvons-nous vous accompagner ?"
+                  required
+                  minLength={20}
                   className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl focus:outline-none focus:border-[#4CAF50] focus:ring-4 focus:ring-[#4CAF50]/10 transition-all text-[#111111] resize-none"
                 />
               </div>
+              {feedback && (
+                <p
+                  className={`rounded-2xl px-5 py-4 text-sm font-semibold ${
+                    status === 'success'
+                      ? 'bg-green-50 text-[#2E7032]'
+                      : 'bg-red-50 text-red-700'
+                  }`}
+                  role="status"
+                  aria-live="polite"
+                >
+                  {feedback}
+                </p>
+              )}
               <button
                 type="submit"
-                className="w-full bg-[#4CAF50] hover:bg-[#2E7032] text-white py-5 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3 shadow-lg shadow-[#4CAF50]/20"
+                disabled={isSubmitting}
+                className="w-full bg-[#4CAF50] hover:bg-[#2E7032] disabled:cursor-not-allowed disabled:opacity-70 text-white py-5 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3 shadow-lg shadow-[#4CAF50]/20"
               >
-                Envoyer le message <Send size={20} aria-hidden />
+                {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}{' '}
+                <Send size={20} aria-hidden />
               </button>
             </form>
           </div>
