@@ -37,6 +37,7 @@ export const socialLinks = [
 
 export const images = {
   hero: publicImage("Image d'accueil.jpg"),
+  heroWebp: publicImage("Image d'accueil.webp"),
   heroFallback:
     'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1920&q=80',
   aboutTeam: publicImage('Photo membres association.jpeg'),

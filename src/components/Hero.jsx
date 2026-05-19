@@ -2,24 +2,54 @@ import { ArrowRight } from 'lucide-react'
 import { images } from '../data/siteContent'
 
 export function Hero({ siteImages = images }) {
+  const heroJpg = siteImages.hero
+  const heroWebp = siteImages.heroWebp ?? images.heroWebp
+  const isCmsImage = heroJpg.startsWith('/api/cms-image')
+
   return (
     <section
       id="accueil"
-      className="relative flex min-h-screen min-h-[100dvh] items-center justify-center overflow-hidden"
+      className="relative flex min-h-screen min-h-[100dvh] items-center justify-center overflow-hidden bg-[#1a3d1c]"
     >
-      <img
-        src={siteImages.hero}
-        alt="Ville durable et énergies renouvelables"
-        className="absolute inset-0 z-0 h-full w-full object-cover object-center brightness-[0.92] contrast-[1.02]"
-        onError={(e) => {
-          const el = e.currentTarget
-          if (!el.dataset.fallback) {
-            el.dataset.fallback = '1'
-            el.src = images.heroFallback
-          }
-        }}
-      />
-      <div className="absolute inset-0 z-10 bg-black/45" />
+      {isCmsImage ? (
+        <img
+          src={heroJpg}
+          alt="Ville durable et énergies renouvelables"
+          width={1920}
+          height={1030}
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 z-0 h-full w-full object-cover object-center brightness-[0.92] contrast-[1.02]"
+          onError={(e) => {
+            const el = e.currentTarget
+            if (!el.dataset.fallback) {
+              el.dataset.fallback = '1'
+              el.src = images.heroFallback
+            }
+          }}
+        />
+      ) : (
+        <picture className="absolute inset-0 z-0">
+          <source srcSet={heroWebp} type="image/webp" />
+          <img
+            src={heroJpg}
+            alt="Ville durable et énergies renouvelables"
+            width={1920}
+            height={1030}
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full object-cover object-center brightness-[0.92] contrast-[1.02]"
+            onError={(e) => {
+              const el = e.currentTarget
+              if (!el.dataset.fallback) {
+                el.dataset.fallback = '1'
+                el.src = images.heroFallback
+              }
+            }}
+          />
+        </picture>
+      )}
+      <div className="absolute inset-0 z-10 bg-black/45" aria-hidden="true" />
 
       <div className="relative z-20 mx-auto mt-20 w-full max-w-7xl px-4 sm:px-6 md:px-12">
         <div className="max-w-4xl text-left">

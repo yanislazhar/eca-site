@@ -25,7 +25,15 @@
     <link rel="alternate" hreflang="fr-DZ" href="https://energy-cities-algeria.org/" />
     <link rel="alternate" hreflang="fr-FR" href="https://energy-cities-algeria.org/" />
     <link rel="alternate" hreflang="x-default" href="https://energy-cities-algeria.org/" />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/Image%20d'accueil.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
     <link rel="manifest" href="/site.webmanifest" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="Contexte pour assistants IA" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -49,8 +57,13 @@
       property="og:description"
       content="Association de référence pour les villes durables, l'efficacité énergétique des collectivités locales algériennes et les coopérations méditerranéennes avec la France."
     />
-    <meta property="og:image" content="https://energy-cities-algeria.org/logo/LOGO.png" />
-    <meta property="og:image:alt" content="Logo Energy Cities Algeria" />
+    <meta
+      property="og:image"
+      content="https://energy-cities-algeria.org/images/Image%20d'accueil.jpg"
+    />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1030" />
+    <meta property="og:image:alt" content="Ville durable et énergies renouvelables en Algérie" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
@@ -60,7 +73,10 @@
       name="twitter:description"
       content="ECA accompagne les collectivités locales algériennes et les partenariats France-Algérie vers des villes sobres, durables et décarbonées."
     />
-    <meta name="twitter:image" content="https://energy-cities-algeria.org/logo/LOGO.png" />
+    <meta
+      name="twitter:image"
+      content="https://energy-cities-algeria.org/images/Image%20d'accueil.jpg"
+    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -77,11 +93,20 @@
               "@type": "Person",
               "name": "Hasni Sid Ali"
             },
+            "email": "energycitiesalgeria@gmail.com",
+            "telephone": "+213551294472",
             "address": {
               "@type": "PostalAddress",
-              "addressLocality": "Alger",
+              "streetAddress": "18 rue Larbi Ben M'hidi, BP N° 93",
+              "addressLocality": "Alger Centre",
+              "postalCode": "16000",
               "addressCountry": "DZ"
             },
+            "sameAs": [
+              "https://www.youtube.com/@EACEnergyCitiesAlgeriaAssociat",
+              "https://www.linkedin.com/company/energy-cities-algeria-eca/",
+              "https://www.facebook.com/share/aQsmqcLfVegJWgHp/"
+            ],
             "areaServed": [
               { "@type": "Country", "name": "Algérie" },
               { "@type": "Country", "name": "France" },
@@ -119,7 +144,8 @@
             "about": {
               "@id": "https://energy-cities-algeria.org/#organization"
             },
-            "primaryImageOfPage": "https://energy-cities-algeria.org/images/Image%20d'accueil.jpg",
+            "primaryImageOfPage": "https://energy-cities-algeria.org/images/Image%20d'accueil.webp",
+            "description": "Page d'accueil d'Energy Cities Algeria : transition énergétique territoriale, villes durables et coopération France-Algérie pour les collectivités locales algériennes.",
             "inLanguage": "fr-DZ"
           },
           {
@@ -138,26 +164,26 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Qui est Energy Cities Algeria ?",
+                "name": "Quelle est la mission principale d'Energy Cities Algeria ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Energy Cities Algeria, ou ECA, est une association fondée en 2018 à Alger pour accompagner les collectivités locales algériennes dans la transition énergétique, l'efficacité énergétique et le développement durable."
+                  "text": "ECA aide les collectivités locales à structurer des projets concrets de transition énergétique, d'efficacité énergétique et de développement durable en Algérie."
                 }
               },
               {
                 "@type": "Question",
-                "name": "ECA intervient-elle en France et en Algérie ?",
+                "name": "Pourquoi ECA est pertinente pour les recherches en France ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "ECA agit principalement en Algérie et développe des coopérations France-Algérie et méditerranéennes avec des collectivités, institutions, bailleurs et partenaires techniques."
+                  "text": "L'association développe des passerelles France-Algérie autour des villes durables, de la coopération territoriale, du transfert d'expertise et des projets méditerranéens."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Quels sujets couvre Energy Cities Algeria ?",
+                "name": "Quels partenaires peuvent travailler avec ECA ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "ECA couvre les villes durables, l'efficacité énergétique, les énergies renouvelables, la décarbonation, la gestion environnementale, la formation et les projets territoriaux de développement durable."
+                  "text": "Les communes, institutions publiques, bailleurs internationaux, entreprises responsables, experts techniques, universités et associations engagées dans la transition énergétique."
                 }
               }
             ]

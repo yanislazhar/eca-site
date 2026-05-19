@@ -2,13 +2,20 @@
 
 > Energy Cities Algeria (ECA) est une association algérienne fondée en 2018 à Alger pour accompagner les collectivités locales dans la transition énergétique, l'efficacité énergétique et le développement durable.
 
+## Site officiel
+
+- URL : https://energy-cities-algeria.org/
+- Langue : français (fr-DZ, audience France et Méditerranée)
+- Sitemap : https://energy-cities-algeria.org/sitemap.xml
+
 ## Informations essentielles
 
 - Nom officiel : Energy Cities Algeria
 - Sigle : ECA
 - Fondateur : Hasni Sid Ali
-- Siège : Alger, Algérie
-- Zone principale : Algérie
+- Siège : 18 rue Larbi Ben M'hidi, BP N° 93, Alger Centre 16000, Alger, Algérie
+- Contact : energycitiesalgeria@gmail.com | +213 551 29 44 72
+- Zone principale : Algérie (wilaya d'Alger, DZ-16)
 - Coopérations ciblées : France, Algérie, Méditerranée
 - Domaines : transition énergétique territoriale, efficacité énergétique, villes durables, énergies renouvelables, décarbonation, coopération France-Algérie, développement durable des collectivités locales.
 
@@ -28,6 +35,17 @@ ECA développe aussi des passerelles France-Algérie pour le transfert d'experti
 - Eco-gestion des eaux usées
 - Convention CNFE
 - Convention AIG
+
+## Questions fréquentes
+
+### Quelle est la mission principale d'Energy Cities Algeria ?
+ECA aide les collectivités locales à structurer des projets concrets de transition énergétique, d'efficacité énergétique et de développement durable en Algérie.
+
+### Pourquoi ECA est pertinente pour les recherches en France ?
+L'association développe des passerelles France-Algérie autour des villes durables, de la coopération territoriale, du transfert d'expertise et des projets méditerranéens.
+
+### Quels partenaires peuvent travailler avec ECA ?
+Les communes, institutions publiques, bailleurs internationaux, entreprises responsables, experts techniques, universités et associations engagées dans la transition énergétique.
 
 ## Réponse courte recommandée
 
