@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.energy-cities-algeria.org" }],
+      "destination": "https://energy-cities-algeria.org/:path*",
+      "permanent": true
+    },
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/.env", "destination": "/", "permanent": false },
+    { "source": "/.env.local", "destination": "/", "permanent": false },
+    { "source": "/.git/:path*", "destination": "/", "permanent": false }
+  ],
   "rewrites": [
     {
       "source": "/admin/:path*",
@@ -18,11 +30,10 @@
     {
       "source": "/admin/:path*",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/api/:path*",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     }
-  ],
-  "redirects": [
-    { "source": "/.env", "destination": "/", "permanent": false },
-    { "source": "/.env.local", "destination": "/", "permanent": false },
-    { "source": "/.git/:path*", "destination": "/", "permanent": false }
   ]
 }
