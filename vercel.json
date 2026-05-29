@@ -1,9 +1,9 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "www.energy-cities-algeria.org" }],
-      "destination": "https://energy-cities-algeria.org/:path*",
+      "destination": "https://energy-cities-algeria.org/$1",
       "permanent": true
     },
     { "source": "/index.html", "destination": "/", "permanent": true },
